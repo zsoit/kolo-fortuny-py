@@ -9,6 +9,7 @@ class Gui:
         self.root = root
         self.okno_aplikacji(root)
         self.naglowek_informacyjny(root)
+        self.pobierz_imie(root)
         self.przycisk_obroc(root)
         self.przycisk_zgadywania(root)
 
@@ -18,6 +19,8 @@ class Gui:
         self.label_runda(root)
         self.label_nieprawidlowe_litery(root)
         self.label_ruchy_w_rundzie(root)
+
+        self.tablica_wynikow(root)
 
         self.nowa_gra()
       
@@ -41,6 +44,9 @@ class Gui:
         self.przycisk_zgadywania = tk.Button(root, text="Zgadnij literę", command=self.zgadnij_litere)
         self.przycisk_zgadywania.pack()
 
+        self.label_literka = tk.Label(root, text="Wpisz literę: ")
+        self.label_literka.pack()
+
         self.entry_zgadywania = ttk.Entry(root)
         self.entry_zgadywania.pack(pady=50)
 
@@ -63,5 +69,13 @@ class Gui:
       def label_ruchy_w_rundzie(self, root):
           self.label_ruchy_w_rundzie = tk.Label(root, text="Ruchy w rundzie: 0")
           self.label_ruchy_w_rundzie.pack()   
-      
 
+      def tablica_wynikow(self, root):
+        self.przycisk_tablicawynikow = tk.Button(root, text="Tablica wyników", command=self.pokaz_tablice_wynikow)
+        self.przycisk_tablicawynikow.pack()
+    
+      def pobierz_imie(self, root):
+        self.label_imie = tk.Label(root, text="Nazwa użytkownik: ")
+        self.label_imie.pack()
+        self.entry_imie = ttk.Entry(root)
+        self.entry_imie.pack(pady=50)
