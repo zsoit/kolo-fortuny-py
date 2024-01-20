@@ -30,11 +30,8 @@ class Gui:
           self.kolo.pack()
           
       def naglowek_informacyjny(self,root):
-          self.label_naglowek = tk.Label(root, text=NAZWA_APLIKACJI, font=("Helvetica", 20))
-          self.label_info = tk.Label(root, text=AUTOR, font=("Helvetica", 10))
-          self.label_info.pack(pady=50)
-
-          self.label_naglowek.pack(pady=50)
+          self.label_naglowek = tk.Label(root, text=NAZWA_APLIKACJI, font=("Helvetica", 15))
+          self.label_naglowek.pack(pady=30)
 
       def przycisk_obroc(self,root):
           self.przycisk_obrotu = tk.Button(root, text="Obróć kołem", command=self.obroc_kolo)
@@ -45,14 +42,14 @@ class Gui:
         self.przycisk_zgadywania.pack()
 
         self.label_literka = tk.Label(root, text="Wpisz literę: ")
-        self.label_literka.pack()
+        self.label_literka.pack(pady=10)
 
         self.entry_zgadywania = ttk.Entry(root)
-        self.entry_zgadywania.pack(pady=50)
+        self.entry_zgadywania.pack(pady=10)
 
       def label_haslo(self, root):
         self.label_haslo = tk.Label(root, text="Hasło: ", font=("Helvetica", 30))
-        self.label_haslo.pack(pady=50)
+        self.label_haslo.pack(pady=30)
 
       def label_pieniadze(self, root):
           self.label_pieniadze = tk.Label(root, text="Pieniądze: 0")
@@ -78,4 +75,4 @@ class Gui:
         self.label_imie = tk.Label(root, text="Nazwa użytkownik: ")
         self.label_imie.pack()
         self.entry_imie = ttk.Entry(root)
-        self.entry_imie.pack(pady=50)
+        self.entry_imie.pack(pady=10)
