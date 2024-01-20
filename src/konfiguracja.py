@@ -1,5 +1,5 @@
 NAZWA_APLIKACJI = "Koło Fortuny ZPO"
-AUTOR = "Maciej Czubiński"
+AUTOR = "Maciej Czubiński U-2XXXX"
 
 SEKTORY = ["Bankrut", "100", "200", "Dodatkowy Ruch", "300", "400", "Nagroda", "500"]
 

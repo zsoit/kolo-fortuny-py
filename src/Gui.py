@@ -27,8 +27,8 @@ class Gui:
           self.kolo.pack()
           
       def naglowek_informacyjny(self,root):
-          self.label_naglowek = tk.Label(root, text=NAZWA_APLIKACJI, font=("Helvetica", 40))
-          self.label_info = tk.Label(root, text=AUTOR, font=("Helvetica", 20))
+          self.label_naglowek = tk.Label(root, text=NAZWA_APLIKACJI, font=("Helvetica", 20))
+          self.label_info = tk.Label(root, text=AUTOR, font=("Helvetica", 10))
           self.label_info.pack(pady=50)
 
           self.label_naglowek.pack(pady=50)
@@ -42,11 +42,11 @@ class Gui:
         self.przycisk_zgadywania.pack()
 
         self.entry_zgadywania = ttk.Entry(root)
-        self.entry_zgadywania.pack()
+        self.entry_zgadywania.pack(pady=50)
 
       def label_haslo(self, root):
-        self.label_haslo = tk.Label(root, text="Hasło: ")
-        self.label_haslo.pack()
+        self.label_haslo = tk.Label(root, text="Hasło: ", font=("Helvetica", 30))
+        self.label_haslo.pack(pady=50)
 
       def label_pieniadze(self, root):
           self.label_pieniadze = tk.Label(root, text="Pieniądze: 0")
