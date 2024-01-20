@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from konfiguracja import NAZWA_APLIKACJI, AUTOR
+from src.konfiguracja import NAZWA_APLIKACJI, AUTOR
 
 class Gui:
       def __init__(self, root):

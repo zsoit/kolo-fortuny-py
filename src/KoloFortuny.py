@@ -1,11 +1,11 @@
 # importowanie bibliotek
 
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
 import random
 
-from Gui import Gui
-from konfiguracja import KATEGORIE, HASLA, SEKTORY
+from src.Gui import Gui
+from src.konfiguracja import KATEGORIE, HASLA, SEKTORY
 
 class KoloFortuny(Gui):
     def __init__(self, root):
@@ -23,9 +23,9 @@ class KoloFortuny(Gui):
         self.ruchy_w_rundzie = 0  # Licznik ruchów w danej rundzie
         self.limit_ruchow = 1  # Limit ruchów na jedną rundę
 
-        super().__init__(root)
+        super().__init__(root) #dziedziczenie konstruktora z klasy Gui
 
-    def okienko_informacyjne(tytul, tresc):
+    def alert(self, tytul, tresc):
         messagebox.showinfo(tytul,tresc)
 
     def nowa_gra(self):
@@ -44,8 +44,7 @@ class KoloFortuny(Gui):
             sektory = SEKTORY
             wylosowany_sektor = random.choice(sektory)
 
-            messagebox.showinfo("Wynik", f"Wylosowany sektor: {wylosowany_sektor}")
-
+            self.alert("Wynik", f"Wylosowany sektor: {wylosowany_sektor}")
 
             if wylosowany_sektor == "Bankrut":
                 self.pieniadze = 0
@@ -70,33 +69,36 @@ class KoloFortuny(Gui):
             else:
                 self.nieprawidlowe_litery.add(wprowadzona_litera)
         else:
-            messagebox.showinfo("Błąd", "Ta litera została już wprowadzona!")
+            self.alert("Błąd", "Ta litera została już wprowadzona!")
 
         self.aktualizuj_interfejs()
 
     def sprawdz_poprawnosc(self, litera):
         if litera.isalpha() and len(litera) == 1:
             if litera in self.haslo:
-                messagebox.showinfo("Wynik", f"Poprawna literka")
+
+                self.alert("Wynik", f"Poprawna literka")
                 self.pieniadze += 50  # Przyznajemy punkty za poprawną literę
                 for i in range(len(self.haslo)):
                     if self.haslo[i] == litera:
                         self.aktualne_haslo[i] = litera
                 if "_" not in self.aktualne_haslo:
                     if self.runda < 3:  # Możesz dostosować liczbę rund
-                        messagebox.showinfo("Gratulacje!", f"Hasło odgadnięte: {self.haslo}\nPieniądze: {self.pieniadze}")
+
+
+                        self.alert("Gratulacje!", f"Hasło odgadnięte: {self.haslo}\nPieniądze: {self.pieniadze}")
                         self.runda += 1
                         self.label_runda.config(text=f"Runda: {self.runda}")
                         self.nowa_gra()
                     else:
-                        messagebox.showinfo("Gratulacje!", f"Hasło odgadnięte: {self.haslo}\nKoniec gry!\nPieniądze: {self.pieniadze}")
-                        self.root.quit()
+                        self.alert("Gratulacje!", f"Hasło odgadnięte: {self.haslo}\nKoniec gry!\nPieniądze: {self.pieniadze}")
+                        # self.root.quit()
                 return True
             else:
-                messagebox.showinfo("Wynik", f"Niepoprawna literka")
+                self.alert("Wynik", f"Niepoprawna literka")
                 return False
         else:
-            messagebox.showinfo("Błąd", "Wprowadź pojedynczą literę!")
+            self.alert("Błąd", "Wprowadź pojedynczą literę!")
             return False
 
     def aktualizuj_interfejs(self):

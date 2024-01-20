@@ -1,6 +1,6 @@
 # importowanie bibliotek
 import tkinter as tk
-from KoloFortuny import KoloFortuny
+from src.KoloFortuny import KoloFortuny
 
 
 class Aplikacja:
